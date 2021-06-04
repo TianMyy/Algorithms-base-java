@@ -7,7 +7,6 @@ public class InsertionSort {
 	}
 	
 	public static int[] insert(int[] nums) {
-		int min = nums[0];
 		for(int i = 1; i < nums.length; i++) {
 			for(int j = i; j > 0; j--) {
 				if(nums[j-1] > nums[j]) {
