@@ -3,53 +3,35 @@ package sort;
 public class QuickSort {
 	public static void main(String[] args) {
 		int[] numbers = {4, 7, 2, 5, 11, 19, 3, 0};
-		sort(numbers);
-		printArr(numbers);
+		printArr(quickSort(numbers, 0, numbers.length-1));
 	}
 	
-	public static void sort(int[] nums) {
-		int left = 0;
-		int right = nums.length - 1;
-		sort(nums, left, right);
-	}
-	
-	public static void sort(int[] nums, int left, int right) {
-		if(left < right) {
-			int divide = quick(nums, left, right);
-			sort(nums, left, divide);
-			sort(nums, divide+1, right);
+	public static int[] quickSort(int[] nums, int left, int right) {
+		if(left > right) {
+			return nums;
 		}
-	}
-	
-	public static int quick(int[] nums, int left, int right) {
+		
 		int key = nums[left];
-		int start = left;
-		int end = right + 1;
-		while(true) {
-			while(key < nums[--end]) {
-				if(end == left) {
-					break;
-				}
+		int i = left;
+		int j = right;
+		while(i < j) {
+			while(i < j && nums[j] > key) {
+				j--;
 			}
-			while(key >= nums[++start]) {
-				if(start == right) {
-					break;
-				}
+			if(i < j) {
+				nums[i++] = nums[j];
 			}
-			if(left >= right) {
-				break;
-			}else {
-				swap(nums, start, end);
+			while(i < j && nums[i] < key) {
+				i++;
+			}
+			if(i < j) {
+				nums[j--]= nums[i];
 			}
 		}
-		swap(nums, left, end);
-		return end;
-	}
-	
-	public static void swap(int[] nums, int i, int j) {
-		int temp = nums[i];
-		nums[i] = nums[j];
-		nums[j] = temp;
+		nums[i] = key;
+		nums = quickSort(nums, left, i-1);
+		nums = quickSort(nums, j+1, right);
+		return nums;
 	}
 	
 	public static void printArr(int[] nums) {
