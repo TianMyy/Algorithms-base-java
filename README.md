@@ -8,7 +8,8 @@ Data structure and algorithms coding implements based on Java programming langua
 
 ### General info
 This project includes all the code demos for the learning progress of data structure & algorithms based on Java.   
-1. Sorts folder includes different type of sort algorithms. 
+1. Sorts folder includes different type of sort algorithms.   
+2. Lists folder includes Sequential List and Linked list data structures.
 
 ### Technologies
 Project is created with:
@@ -19,4 +20,8 @@ Project is created with:
   1. Bubble sort
   2. Selection sort
   3. Insertion sort
-  4. Shell sort
+  4. Shell sort  
+  5. Merge sort  
+  6. Quick sort
+#### Lists folder include following content:
+  1. Sequential List
