@@ -71,7 +71,8 @@ public class Stack<T> implements Iterable<T> {
 		
 		@Override
 		public Object next() {
-			return node.next.value;
+			node = nodex.next;
+			return node.value;
 		}
 	}
 }
