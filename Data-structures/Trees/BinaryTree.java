@@ -1,5 +1,7 @@
 package tree;
 
+import queue.Queue;
+
 public class BinaryTree<Key extends Comparable<Key>, Value> {
 	private Node root;
 	private int num;
@@ -139,4 +141,104 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
 		}
 		return x;
 	} 
+	
+	
+	// TRAVERSALS
+	// use pre-order traversal to get all keys in the tree
+	public Queue<Key> preOrder(){
+		Queue<Key> keys = new Queue<>();
+		preOrder(root, keys);
+		return keys;
+	}
+	
+	// get all keys from given node and put in Queue keys
+	private void preOrder(Node x, Queue<Key> keys) {
+		if(x != null) {
+			// put key of x into keys
+			keys.enqueue(x.key);
+			// recursion left child tree of node x
+			preOrder(x.left, keys);
+			// recursion right child tree of node x
+			preOrder(x.right, keys);
+		}
+	}
+	
+	//use mid-order traversal to get all keys in the tree
+	public Queue<Key> inOrder(){
+		Queue<Key> keys = new Queue<>();
+		inOrder(root, keys);
+		return keys;
+	}
+	private void inOrder(Node x, Queue<Key> keys) {
+		if(x != null) {
+			inOrder(x.left, keys);
+			keys.enqueue(x.key);
+			inOrder(x.right, keys);
+		}
+	}
+	
+	// use after-order traversal to get all keys in the tree
+	public Queue<Key> postOrder(){
+		Queue<Key> keys = new Queue<>();
+		postOrder(root, keys);
+		return keys;
+	}
+	private void postOrder(Node x, Queue<Key> keys) {
+		if(x != null) {
+			postOrder(x.left, keys);
+			postOrder(x.right, keys);
+			keys.enqueue(x.key);
+		}
+	}
+	
+	// use sequence traversal get all keys in the tree
+	public Queue<Key> sequence(){
+		// define two queue to store keys and nodes in tree
+		Queue<Key> keys = new Queue<>();
+		Queue<Node> nodes = new Queue<>();
+		// put root node to queue
+		nodes.enqueue(root);
+		
+		while(!nodes.isEmpty()) {
+			//dequeue a node in the queue, put the key into keys
+			Node curr = nodes.dequeue();
+			keys.enqueue(curr.key);
+			// determine does node have left child node. if true, put into nodes
+			if(curr.left != null) {
+				nodes.enqueue(curr.left);
+			}
+			if(curr.right != null) {
+				nodes.enqueue(curr.right);
+			}
+		}
+		return keys;
+	}
+	
+	
+	//[MAX DEPTH]
+	// get max depth of the entire tree
+	public int maxDepth() {
+		return maxDepth(root);
+	}
+	private int maxDepth(Node x) {
+		if(x == null) {
+			return 0;
+		}
+		// max depth of x
+		int max = 0;
+		// max depth of left child node
+		int maxL = 0;
+		// max depth of right child node
+		int maxR = 0;
+		// get the max depth of left child tree of node x
+		if(x.left != null) {
+			maxL = maxDepth(x.left);
+		}
+		// get the max depth of right child tree of node x
+		if(x.right != null) {
+			maxR = maxDepth(x.right);
+		}
+		max = maxL > maxR ? maxL+1 : maxR+1;
+		return max;
+	}
 }
