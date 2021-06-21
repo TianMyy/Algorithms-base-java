@@ -24,5 +24,5 @@ Project is created with:
   5. Merge sort  
   6. Quick sort
 #### Data-structure folder include following content:
-  1. Lists: 
+  1. Lists:   
      Sequential List / Singly Linked List / Doubly Linked List / Circle Linked List / Slow and faster pointer instance / Josephus instance
