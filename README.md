@@ -52,7 +52,7 @@ Project is created with:
      1) Max Priority Queue  
      2) Min priority Queue
      3) Index Min Priority Queue  
-  8. Tree-advanced :  
+  8. Trees-advanced :  
      1) Red-Black Tree  
      2) Union Find   
      3) Union Find Tree
@@ -62,8 +62,13 @@ Project is created with:
      2) Depth First Search
      3) Bredth First Search
      4) Depth First Paths  
-     5) Directed Graph  
-     6) Directed Cycle of Graph  
-     7) Depth First Sort for points  
-     8) Topological Sort  
-     9) Edge class and Edges Weighted Graph
+  10. Graphs :   
+     1) Directed Graph  
+     2) Directed Cycle of Graph  
+     3) Depth First Sort for points  
+     4) Topological Sort  
+     5) Edge class and Edges Weighted Graph  
+     6) Prim MST  
+     7) Kruskal MST
+     8) Directed Edge and Weighted Directed Graph  
+     9) Dijstra Shortest Path
