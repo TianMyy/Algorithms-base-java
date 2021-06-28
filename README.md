@@ -10,6 +10,7 @@ Data structure and algorithms coding implements based on Java programming langua
 This project includes all the code demos for the learning progress of data structure & algorithms based on Java.   
 1. Sorts folder includes different type of sort algorithms.   
 2. Data-structure folder includes different data structures, such as List, Queue, Stack, Heap, Tree and Graph.  
+3. Not only implementations codes included, but also API design of the specific classes.
 
 ### Technologies
 Project is created with:
