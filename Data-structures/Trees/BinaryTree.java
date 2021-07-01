@@ -215,7 +215,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
 	}
 	
 	
-	//[MAX DEPTH]
+	// [MAX DEPTH]
 	// get max depth of the entire tree
 	public int maxDepth() {
 		return maxDepth(root);
@@ -240,5 +240,26 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
 		}
 		max = maxL > maxR ? maxL+1 : maxR+1;
 		return max;
+	}
+	
+	
+	// [MIN DEPTH]
+	// get min depth of the entire tree
+	public int minDepth() {
+		return minDepth(root);
+	}
+	private int minDepth(Node x) {
+		if(root == null){
+	        return 0;
+	    }
+	    if(root.left == null && root.right == null){
+	        return 1;
+	    } 
+	    int res = Integer.MAX_VALUE; 
+	    if(root.left != null)
+	        res = Math.min(minDepth(root.left), res);
+	    if(root.right != null)
+	        res = Math.min(minDepth(root.right), res);
+	    return res + 1;
 	}
 }
